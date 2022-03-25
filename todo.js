@@ -15,7 +15,7 @@ function renderTodo(todo) {
   const dateCell = row.insertCell(1);
   dateCell.innerText = todo.date;
   const deleteCell = row.insertCell(2);
-  deleteCell.innerHTML = `<a class="button">delete</a>`;
+  deleteCell.innerHTML = `<a onclick="deleteTodo('${todo.id}')" class="button">delete</a>`;
 }
 
 function addTodo() {
@@ -27,4 +27,8 @@ function addTodo() {
   };
   todoItems.push(todo);
   renderTodo(todo);
+}
+
+function deleteTodo(id) {
+  console.log(`Delete item: ${id}`)
 }
