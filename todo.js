@@ -45,6 +45,17 @@ function addTodo() {
 function deleteTodo(id) {
   deleteAllTodos();
   const found = todoItems.findIndex((todo) => todo.id == id);
+  const done = todoItems[found];
   todoItems.splice(found, 1);
   renderAllTodos();
+  addDone(done);
+}
+
+function addDone(doneItem) {
+  const table = document.getElementById("done-table");
+  const row = table.insertRow(-1);
+  const textCell = row.insertCell(0);
+  textCell.innerText = doneItem.text;
+  const dateCell = row.insertCell(1);
+  dateCell.innerText = doneItem.date;
 }
